@@ -1,0 +1,92 @@
+[
+    {
+        "place_id": "13468094",
+        "lat": "37.7799405",
+        "lon": "-122.4076637",
+        "type": "cafe",
+        "icon": "http://nominatim.openstreetmap.org/images/mapicons/food_cafe.p.20.png",
+        "address": {
+            "cafe": "Rancho Parnassus Coffee"
+        }
+    },
+    {
+        "place_id": "7880494",
+        "lat": "37.791651",
+        "lon": "-122.4209962",
+        "type": "cafe",
+        "icon": "http://nominatim.openstreetmap.org/images/mapicons/food_cafe.p.20.png",
+        "address": {
+            "cafe": "Royal Ground Coffee"
+        }
+    },
+    {
+        "place_id": "14594412",
+        "lat": "37.7894321",
+        "lon": "-122.4008567",
+        "type": "cafe",
+        "icon": "http://nominatim.openstreetmap.org/images/mapicons/food_cafe.p.20.png",
+        "address": {
+            "cafe": "Peet's Coffee and Tea"
+        }
+    },
+    {
+        "place_id": "17909497",
+        "lat": "37.7886901",
+        "lon": "-122.4008757",
+        "type": "cafe",
+        "icon": "http://nominatim.openstreetmap.org/images/mapicons/food_cafe.p.20.png",
+        "address": {
+            "cafe": "Starbucks Coffee"
+        }
+    },
+    {
+        "place_id": "17741164",
+        "lat": "37.7910697",
+        "lon": "-122.4192372",
+        "type": "cafe",
+        "icon": "http://nominatim.openstreetmap.org/images/mapicons/food_cafe.p.20.png",
+        "address": {
+            "cafe": "Contraband Coffee Bar"
+        }
+    },
+    {
+        "place_id": "10006036",
+        "lat": "37.7810244",
+        "lon": "-122.3952293",
+        "type": "restaurant",
+        "icon": "http://nominatim.openstreetmap.org/images/mapicons/food_restaurant.p.20.png",
+        "address": {
+            "restaurant": "HRD Coffee Shop"
+        }
+    },
+    {
+        "place_id": "4027076",
+        "lat": "37.7826879",
+        "lon": "-122.4189416",
+        "type": "cafe",
+        "icon": "http://nominatim.openstreetmap.org/images/mapicons/food_cafe.p.20.png",
+        "address": {
+            "cafe": "Emile's Coffee & Tea"
+        }
+    },
+    {
+        "place_id": "18346713",
+        "lat": "37.7769408",
+        "lon": "-122.4082734",
+        "type": "cafe",
+        "icon": "http://nominatim.openstreetmap.org/images/mapicons/food_cafe.p.20.png",
+        "address": {
+            "cafe": "Sightglass Coffee"
+        }
+    },
+    {
+        "place_id": "14965340",
+        "lat": "37.7860559",
+        "lon": "-122.4051519",
+        "type": "cafe",
+        "icon": "http://nominatim.openstreetmap.org/images/mapicons/food_cafe.p.20.png",
+        "address": {
+            "cafe": "The Coffee Bean & Tea Leaf"
+        }
+    }
+]

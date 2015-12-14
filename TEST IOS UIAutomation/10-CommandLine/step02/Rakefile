@@ -1,0 +1,85 @@
+BUILD_DIR             = "/tmp/NearbyMe"
+APP_BUNDLE            = "#{BUILD_DIR}/NearbyMe.app"
+AUTOMATION_TEMPLATE   = "automation/Template.tracetemplate"
+RESULTS_PATH          = "automation_results"
+OUTPUT_TRACE_DOCUMENT = "#{RESULTS_PATH}/Trace"
+
+# If the automation_results directory isn't there, Instruments balks.
+mkdir_p RESULTS_PATH
+
+desc "Remove the automation_results directory and start fresh"
+task "clean_results" do
+  rm_rf RESULTS_PATH
+end
+
+desc "Run appropriate tests for iPhone and iPad Simulators"
+task "default" do
+  clean
+
+  build "iphone"
+  automate "automation/test_suite.js"
+
+  build "ipad"
+  automate "automation/test_suite_ipad.js"
+
+  close_sim
+
+  puts "\nWin condition acquired!"
+end
+
+
+#
+# Composable steps
+#
+
+def clean
+  run_xcodebuild "clean"
+end
+
+def build type
+  case type
+  when "iphone"
+    sdk = "iphonesimulator"
+    fam = "1"
+  when "ipad"
+    sdk = "iphonesimulator"
+    fam = "2"
+  else
+    raise "Unknown build type: #{type}"
+  end
+
+  run_xcodebuild "build -sdk #{sdk} TARGETED_DEVICE_FAMILY=#{fam}"
+end
+
+def automate script
+  sh %{
+    bin/unix_instruments \\
+      -t "#{AUTOMATION_TEMPLATE}" \\
+      -D "#{OUTPUT_TRACE_DOCUMENT}" \\
+      "#{APP_BUNDLE}" \\
+      -e UIARESULTSPATH "#{RESULTS_PATH}" \\
+      -e UI_TESTS 1 \\
+      -e UIASCRIPT "#{script}"
+  }
+end
+
+def close_sim
+  sh %{killall "iPhone Simulator" || true}
+end
+
+
+#
+# Utility Methods
+#
+
+def run_xcodebuild extra_args
+  sh %{
+    xcodebuild \\
+      -project NearbyMe.xcodeproj \\
+      -scheme NearbyMeUITests \\
+      -configuration Release \\
+      CONFIGURATION_BUILD_DIR="#{BUILD_DIR}" \\
+      #{extra_args}
+  }
+end
+
